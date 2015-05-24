@@ -28,3 +28,5 @@ var Client = function(param) {
     };
 
 }
+
+module.exports = Client;
