@@ -1,0 +1,19 @@
+{
+  "name": "orthanc-client",
+  "version": "0.1.0",
+  "description": "Orthanc REST API Client",
+  "keywords": [
+    "DICOM",
+    "HTTP",
+    "Orthanc"
+  ],
+  "author": "Frédéric Woelffel <woelffel.f@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FWoelffel/orthanc-client"
+  },
+  "bugs": {
+    "url": "https://github.com/FWoelffel/orthanc-client/issues"
+  }
+  "license": "MIT"
+}
