@@ -31,10 +31,9 @@ var Client = function(param) {
      * @property {String} username Username which will be used by the client to authenticate against Orthanc server
      * @property {String} password Password which will be used by the client to authenticate against Orthanc server
      */
-    // TODO Check if param.auth exists
     this.auth = {
-        username: param.auth.username || '',
-        password: param.auth.password || ''
+      username: (param.auth!==undefined && typeof param.auth === 'object' && typeof param.auth.username === 'string' ? param.auth.username : ''),
+      password: (param.auth!==undefined && typeof param.auth === 'object' && typeof param.auth.password === 'string' ? param.auth.password : '')
     };
 
     /**
