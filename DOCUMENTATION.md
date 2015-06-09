@@ -8,13 +8,13 @@
   * [.auth](#Client+auth) : <code>Object</code>
   * [.instances](#Client+instances)
     * [.getAll()](#Client+instances.getAll) ⇒ <code>Promise</code>
-    * [.get(client, id)](#Client+instances.get) ⇒ <code>Promise</code>
+    * [.get(id)](#Client+instances.get) ⇒ <code>Promise</code>
     * [.getContent(id, [group], [element], [index])](#Client+instances.getContent) ⇒ <code>Promise</code>
     * [.export(id)](#Client+instances.export) ⇒ <code>Promise</code>
     * [.getFile(id)](#Client+instances.getFile) ⇒ <code>Promise</code>
     * [.getAllFrames(id)](#Client+instances.getAllFrames) ⇒ <code>Promise</code>
     * [.getFrame(id, frameNumber, [frameFormat])](#Client+instances.getFrame)
-    * [.getImage(id, [frameFormat])](#Client+instances.getImage)
+    * [.getImage(id, [imageFormat])](#Client+instances.getImage)
     * [.getModule(id, [simplify])](#Client+instances.getModule) ⇒ <code>Promise</code>
     * [.getPatient(id)](#Client+instances.getPatient) ⇒ <code>Promise</code>
     * [.getSeries(id)](#Client+instances.getSeries) ⇒ <code>Promise</code>
@@ -72,9 +72,6 @@
     * [.getExports([params])](#Client+exports.getExports) ⇒ <code>Promise</code>
     * [.deleteExports()](#Client+exports.deleteExports) ⇒ <code>Promise</code>
 
-
--
-
 <a name="new_Client_new"></a>
 ### new Client(param)
 Creates a new Client
@@ -88,17 +85,11 @@ Creates a new Client
 | [param.auth.username] | <code>String</code> |  | Valid Orthanc Server username |
 | [param.auth.password] | <code>String</code> |  | Valid Orthanc Server password |
 
-
--
-
 <a name="Client+url"></a>
 ### client.url : <code>String</code>
 Orthanc REST API's url
 
 **Kind**: instance property of <code>[Client](#Client)</code>  
-
--
-
 <a name="Client+auth"></a>
 ### client.auth : <code>Object</code>
 Orthanc REST API's user credentials
@@ -111,9 +102,6 @@ Orthanc REST API's user credentials
 | username | <code>String</code> | Username which will be used by the client to authenticate against Orthanc server |
 | password | <code>String</code> | Password which will be used by the client to authenticate against Orthanc server |
 
-
--
-
 <a name="Client+instances"></a>
 ### client.instances
 Operations over instances
@@ -122,13 +110,13 @@ Operations over instances
 
 * [.instances](#Client+instances)
   * [.getAll()](#Client+instances.getAll) ⇒ <code>Promise</code>
-  * [.get(client, id)](#Client+instances.get) ⇒ <code>Promise</code>
+  * [.get(id)](#Client+instances.get) ⇒ <code>Promise</code>
   * [.getContent(id, [group], [element], [index])](#Client+instances.getContent) ⇒ <code>Promise</code>
   * [.export(id)](#Client+instances.export) ⇒ <code>Promise</code>
   * [.getFile(id)](#Client+instances.getFile) ⇒ <code>Promise</code>
   * [.getAllFrames(id)](#Client+instances.getAllFrames) ⇒ <code>Promise</code>
   * [.getFrame(id, frameNumber, [frameFormat])](#Client+instances.getFrame)
-  * [.getImage(id, [frameFormat])](#Client+instances.getImage)
+  * [.getImage(id, [imageFormat])](#Client+instances.getImage)
   * [.getModule(id, [simplify])](#Client+instances.getModule) ⇒ <code>Promise</code>
   * [.getPatient(id)](#Client+instances.getPatient) ⇒ <code>Promise</code>
   * [.getSeries(id)](#Client+instances.getSeries) ⇒ <code>Promise</code>
@@ -136,20 +124,14 @@ Operations over instances
   * [.getStatistics(id)](#Client+instances.getStatistics) ⇒ <code>Promise</code>
   * [.getStudy(id)](#Client+instances.getStudy) ⇒ <code>Promise</code>
 
-
--
-
 <a name="Client+instances.getAll"></a>
 #### instances.getAll() ⇒ <code>Promise</code>
 Get all instances
 
 **Kind**: static method of <code>[instances](#Client+instances)</code>  
 **Returns**: <code>Promise</code> - The expected response is an array containing Strings  
-
--
-
 <a name="Client+instances.get"></a>
-#### instances.get(client, id) ⇒ <code>Promise</code>
+#### instances.get(id) ⇒ <code>Promise</code>
 Get the instance with the given id
 
 **Kind**: static method of <code>[instances](#Client+instances)</code>  
@@ -157,11 +139,7 @@ Get the instance with the given id
 
 | Param | Type | Description |
 | --- | --- | --- |
-| client | <code>[Client](#Client)</code> | Client which will be used to perform the request |
 | id | <code>String</code> | Id of the targeted instance |
-
-
--
 
 <a name="Client+instances.getContent"></a>
 #### instances.getContent(id, [group], [element], [index]) ⇒ <code>Promise</code>
@@ -177,9 +155,6 @@ Get raw access to DICOM tags. If both group and element are provided, get raw ac
 | [element] | <code>String</code> | Element number of the targeted value |
 | [index] | <code>Integer</code> | Index number of the targeted sequence value |
 
-
--
-
 <a name="Client+instances.export"></a>
 #### instances.export(id) ⇒ <code>Promise</code>
 Write the DICOM file in the filesystem where Orthanc is running
@@ -190,9 +165,6 @@ Write the DICOM file in the filesystem where Orthanc is running
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted instance |
-
-
--
 
 <a name="Client+instances.getFile"></a>
 #### instances.getFile(id) ⇒ <code>Promise</code>
@@ -205,9 +177,6 @@ Get the .dcm file of the instance with the given id
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted instance |
 
-
--
-
 <a name="Client+instances.getAllFrames"></a>
 #### instances.getAllFrames(id) ⇒ <code>Promise</code>
 Get an array containing all the frames index of the instance with the given id
@@ -218,9 +187,6 @@ Get an array containing all the frames index of the instance with the given id
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted instance |
-
-
--
 
 <a name="Client+instances.getFrame"></a>
 #### instances.getFrame(id, frameNumber, [frameFormat])
@@ -234,11 +200,8 @@ Get the frameNumber'th frame of the instance with the given id
 | frameNumber | <code>Integer</code> |  | Index of the targeted frame |
 | [frameFormat] | <code>String</code> | <code>preview</code> | Wanted format for the targeted frame. Must be image-int16, image-uint16, image-uint8, matlab or preview |
 
-
--
-
 <a name="Client+instances.getImage"></a>
-#### instances.getImage(id, [frameFormat])
+#### instances.getImage(id, [imageFormat])
 Get the image of the instance with the given id
 
 **Kind**: static method of <code>[instances](#Client+instances)</code>  
@@ -246,10 +209,7 @@ Get the image of the instance with the given id
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | id | <code>String</code> |  | Id of the targeted instance |
-| [frameFormat] | <code>String</code> | <code>preview</code> | Wanted format for the targeted frame. Must be image-int16, image-uint16, image-uint8, matlab or preview |
-
-
--
+| [imageFormat] | <code>String</code> | <code>preview</code> | Wanted format for the targeted frame. Must be image-int16, image-uint16, image-uint8, matlab or preview |
 
 <a name="Client+instances.getModule"></a>
 #### instances.getModule(id, [simplify]) ⇒ <code>Promise</code>
@@ -265,9 +225,6 @@ Get the image of the instance with the given id
 | id | <code>String</code> |  | Id of the targeted instance |
 | [simplify] | <code>Boolean</code> | <code>false</code> | Specify whether or not the output should be simplified |
 
-
--
-
 <a name="Client+instances.getPatient"></a>
 #### instances.getPatient(id) ⇒ <code>Promise</code>
 Get the parent Patient of the instance with the given id
@@ -279,9 +236,6 @@ Get the parent Patient of the instance with the given id
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted instance |
 
-
--
-
 <a name="Client+instances.getSeries"></a>
 #### instances.getSeries(id) ⇒ <code>Promise</code>
 Get the parent Series of the instance with the given id
@@ -292,9 +246,6 @@ Get the parent Series of the instance with the given id
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted instance |
-
-
--
 
 <a name="Client+instances.getTags"></a>
 #### instances.getTags(id, [simplify]) ⇒ <code>Promise</code>
@@ -308,9 +259,6 @@ Get the tags of the instance with the given id
 | id | <code>String</code> |  | Id of the targeted instance |
 | [simplify] | <code>Boolean</code> | <code>false</code> | Specify whether or not the output should be simplified |
 
-
--
-
 <a name="Client+instances.getStatistics"></a>
 #### instances.getStatistics(id) ⇒ <code>Promise</code>
 Get some general informations about the instance with the given id
@@ -322,9 +270,6 @@ Get some general informations about the instance with the given id
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted instance |
 
-
--
-
 <a name="Client+instances.getStudy"></a>
 #### instances.getStudy(id) ⇒ <code>Promise</code>
 Get the parent Study of the instance with the given id
@@ -335,9 +280,6 @@ Get the parent Study of the instance with the given id
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted instance |
-
-
--
 
 <a name="Client+series"></a>
 ### client.series
@@ -357,18 +299,12 @@ Operations over series
   * [.getStatistics(id)](#Client+series.getStatistics) ⇒ <code>Promise</code>
   * [.getStudy(id)](#Client+series.getStudy) ⇒ <code>Promise</code>
 
-
--
-
 <a name="Client+series.getAll"></a>
 #### series.getAll() ⇒ <code>Promise</code>
 Get all series
 
 **Kind**: static method of <code>[series](#Client+series)</code>  
 **Returns**: <code>Promise</code> - The expected result is an array containing Strings  
-
--
-
 <a name="Client+series.get"></a>
 #### series.get(id) ⇒ <code>Promise</code>
 Get the series with the given id
@@ -379,9 +315,6 @@ Get the series with the given id
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted series |
-
-
--
 
 <a name="Client+series.getArchive"></a>
 #### series.getArchive(id) ⇒ <code>Promise</code>
@@ -394,9 +327,6 @@ Get a zipped archive containing the series with the given id
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted series |
 
-
--
-
 <a name="Client+series.getInstances"></a>
 #### series.getInstances(id) ⇒ <code>Promise</code>
 Get all the instances of the series with the given id
@@ -408,9 +338,6 @@ Get all the instances of the series with the given id
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted series |
 
-
--
-
 <a name="Client+series.getMedia"></a>
 #### series.getMedia(id) ⇒ <code>Promise</code>
 Get a zipped archive containing the series with the given id for media storage with DICOMDIR
@@ -421,9 +348,6 @@ Get a zipped archive containing the series with the given id for media storage w
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted series |
-
-
--
 
 <a name="Client+series.getModule"></a>
 #### series.getModule(id, [simplify]) ⇒ <code>Promise</code>
@@ -439,9 +363,6 @@ Get a zipped archive containing the series with the given id for media storage w
 | id | <code>String</code> |  | Id of the targeted series |
 | [simplify] | <code>Boolean</code> | <code>false</code> | Specify whether or not the output should be simplified |
 
-
--
-
 <a name="Client+series.getPatient"></a>
 #### series.getPatient(id) ⇒ <code>Promise</code>
 Get the parent Patient of the series with the given id
@@ -452,9 +373,6 @@ Get the parent Patient of the series with the given id
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted series |
-
-
--
 
 <a name="Client+series.getSharedTags"></a>
 #### series.getSharedTags(id, [simplify]) ⇒ <code>Promise</code>
@@ -468,9 +386,6 @@ Get the shared tags of the series with the given id
 | id | <code>String</code> |  | Id of the targeted series |
 | [simplify] | <code>Boolean</code> | <code>false</code> | Specify whether or not the output should be simplified |
 
-
--
-
 <a name="Client+series.getStatistics"></a>
 #### series.getStatistics(id) ⇒ <code>Promise</code>
 Get some general informations about the series with the given id
@@ -482,9 +397,6 @@ Get some general informations about the series with the given id
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted series |
 
-
--
-
 <a name="Client+series.getStudy"></a>
 #### series.getStudy(id) ⇒ <code>Promise</code>
 Get the parent Study of the series with the given id
@@ -495,9 +407,6 @@ Get the parent Study of the series with the given id
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted series |
-
-
--
 
 <a name="Client+studies"></a>
 ### client.studies
@@ -518,18 +427,12 @@ Operations over studies
   * [.getSharedTags(id, [simplify])](#Client+studies.getSharedTags) ⇒ <code>Promise</code>
   * [.getStatistics(id)](#Client+studies.getStatistics) ⇒ <code>Promise</code>
 
-
--
-
 <a name="Client+studies.getAll"></a>
 #### studies.getAll() ⇒ <code>Promise</code>
 Get all studies
 
 **Kind**: static method of <code>[studies](#Client+studies)</code>  
 **Returns**: <code>Promise</code> - The expected result is an array containing Strings  
-
--
-
 <a name="Client+studies.get"></a>
 #### studies.get(id) ⇒ <code>Promise</code>
 Get the study with the given id
@@ -540,9 +443,6 @@ Get the study with the given id
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted study |
-
-
--
 
 <a name="Client+studies.getArchive"></a>
 #### studies.getArchive(id) ⇒ <code>Promise</code>
@@ -555,9 +455,6 @@ Get a zipped archive containing the study with the given id
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted study |
 
-
--
-
 <a name="Client+studies.getInstances"></a>
 #### studies.getInstances(id) ⇒ <code>Promise</code>
 Get all the instances of the study with the given id
@@ -569,9 +466,6 @@ Get all the instances of the study with the given id
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted study |
 
-
--
-
 <a name="Client+studies.getMedia"></a>
 #### studies.getMedia(id) ⇒ <code>Promise</code>
 Get a zipped archive containing the study with the given id for media storage with DICOMDIR
@@ -582,9 +476,6 @@ Get a zipped archive containing the study with the given id for media storage wi
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted study |
-
-
--
 
 <a name="Client+studies.getModule"></a>
 #### studies.getModule(id, [simplify]) ⇒ <code>Promise</code>
@@ -600,9 +491,6 @@ Get a zipped archive containing the study with the given id for media storage wi
 | id | <code>String</code> |  | Id of the targeted study |
 | [simplify] | <code>Boolean</code> | <code>false</code> | Specify whether or not the output should be simplified |
 
-
--
-
 <a name="Client+studies.getModulePatient"></a>
 #### studies.getModulePatient(id, [simplify]) ⇒ <code>Promise</code>
 **Kind**: static method of <code>[studies](#Client+studies)</code>  
@@ -617,9 +505,6 @@ Get a zipped archive containing the study with the given id for media storage wi
 | id | <code>String</code> |  | Id of the targeted study |
 | [simplify] | <code>Boolean</code> | <code>false</code> | Specify whether or not the output should be simplified |
 
-
--
-
 <a name="Client+studies.getPatient"></a>
 #### studies.getPatient(id) ⇒ <code>Promise</code>
 Get the parent Patient of the study with the given id
@@ -631,9 +516,6 @@ Get the parent Patient of the study with the given id
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted study |
 
-
--
-
 <a name="Client+studies.getSeries"></a>
 #### studies.getSeries(id) ⇒ <code>Promise</code>
 Get all the series of the study with the given id
@@ -644,9 +526,6 @@ Get all the series of the study with the given id
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted study |
-
-
--
 
 <a name="Client+studies.getSharedTags"></a>
 #### studies.getSharedTags(id, [simplify]) ⇒ <code>Promise</code>
@@ -660,9 +539,6 @@ Get the shared tags of the study with the given id
 | id | <code>String</code> |  | Id of the targeted study |
 | [simplify] | <code>Boolean</code> | <code>false</code> | Specify whether or not the output should be simplified |
 
-
--
-
 <a name="Client+studies.getStatistics"></a>
 #### studies.getStatistics(id) ⇒ <code>Promise</code>
 Get some general informations about the study with the given id
@@ -673,9 +549,6 @@ Get some general informations about the study with the given id
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted study |
-
-
--
 
 <a name="Client+patients"></a>
 ### client.patients
@@ -697,18 +570,12 @@ Operations over patients
   * [.getStatistics(id)](#Client+patients.getStatistics) ⇒ <code>Promise</code>
   * [.getStudies(id)](#Client+patients.getStudies) ⇒ <code>Promise</code>
 
-
--
-
 <a name="Client+patients.getAll"></a>
 #### patients.getAll() ⇒ <code>Promise</code>
 Get all patients
 
 **Kind**: static method of <code>[patients](#Client+patients)</code>  
 **Returns**: <code>Promise</code> - The expected result is an array containing Strings  
-
--
-
 <a name="Client+patients.get"></a>
 #### patients.get(id) ⇒ <code>Promise</code>
 Get the patient with the given id
@@ -719,9 +586,6 @@ Get the patient with the given id
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted patient |
-
-
--
 
 <a name="Client+patients.getArchive"></a>
 #### patients.getArchive(id) ⇒ <code>Promise</code>
@@ -734,9 +598,6 @@ Get a zipped archive containing the patient with the given id
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted patient |
 
-
--
-
 <a name="Client+patients.getInstances"></a>
 #### patients.getInstances(id) ⇒ <code>Promise</code>
 Get all the instances of the patient with the given id
@@ -748,9 +609,6 @@ Get all the instances of the patient with the given id
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted patient |
 
-
--
-
 <a name="Client+patients.getMedia"></a>
 #### patients.getMedia(id) ⇒ <code>Promise</code>
 Get a zipped archive containing the patient with the given id for media storage with DICOMDIR
@@ -761,9 +619,6 @@ Get a zipped archive containing the patient with the given id for media storage 
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted patient |
-
-
--
 
 <a name="Client+patients.getModule"></a>
 #### patients.getModule(id, [simplify]) ⇒ <code>Promise</code>
@@ -779,9 +634,6 @@ Get a zipped archive containing the patient with the given id for media storage 
 | id | <code>String</code> |  | Id of the targeted patient |
 | [simplify] | <code>Boolean</code> | <code>false</code> |  |
 
-
--
-
 <a name="Client+patients.getProtected"></a>
 #### patients.getProtected(id) ⇒ <code>Promise</code>
 Get the protection against recycling status
@@ -792,9 +644,6 @@ Get the protection against recycling status
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted patient |
-
-
--
 
 <a name="Client+patients.setProtected"></a>
 #### patients.setProtected(id, protect) ⇒ <code>Promise</code>
@@ -808,9 +657,6 @@ Set the protection against recycling status
 | id | <code>String</code> | Id of the targeted patient |
 | protect | <code>Boolean</code> | Specify whether or not the patient should be protected against recycling |
 
-
--
-
 <a name="Client+patients.getSeries"></a>
 #### patients.getSeries(id) ⇒ <code>Promise</code>
 Get all the series of the patient with the given id
@@ -821,9 +667,6 @@ Get all the series of the patient with the given id
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted patient |
-
-
--
 
 <a name="Client+patients.getSharedTags"></a>
 #### patients.getSharedTags(id, [simplify]) ⇒ <code>Promise</code>
@@ -837,9 +680,6 @@ Get the shared tags of the patient with the given id
 | id | <code>String</code> |  | Id of the targeted patient |
 | [simplify] | <code>Boolean</code> | <code>false</code> |  |
 
-
--
-
 <a name="Client+patients.getStatistics"></a>
 #### patients.getStatistics(id) ⇒ <code>Promise</code>
 Get some general informations about the patient with the given id
@@ -851,9 +691,6 @@ Get some general informations about the patient with the given id
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted patient |
 
-
--
-
 <a name="Client+patients.getStudies"></a>
 #### patients.getStudies(id) ⇒ <code>Promise</code>
 Get all the studies of the patient with the given id
@@ -864,9 +701,6 @@ Get all the studies of the patient with the given id
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted patient |
-
-
--
 
 <a name="Client+tools"></a>
 ### client.tools
@@ -881,27 +715,18 @@ Tools operations
   * [.dicomConformance()](#Client+tools.dicomConformance) ⇒ <code>Promise</code>
   * [.generateUid(level)](#Client+tools.generateUid) ⇒ <code>Promise</code>
 
-
--
-
 <a name="Client+tools.now"></a>
 #### tools.now() ⇒ <code>Promise</code>
 Returns the current datetime in the ISO 8601 format
 
 **Kind**: static method of <code>[tools](#Client+tools)</code>  
 **Returns**: <code>Promise</code> - The expected response is a String  
-
--
-
 <a name="Client+tools.reset"></a>
 #### tools.reset() ⇒ <code>Promise</code>
 Hot restart of Orthanc, the configuration file will be read again
 
 **Kind**: static method of <code>[tools](#Client+tools)</code>  
 **Returns**: <code>Promise</code> - The expected response is an empty JSON object  
-
--
-
 <a name="Client+tools.lookup"></a>
 #### tools.lookup(uuid) ⇒ <code>Promise</code>
 Map DICOM UIDs to Orthanc identifiers
@@ -913,18 +738,12 @@ Map DICOM UIDs to Orthanc identifiers
 | --- | --- | --- |
 | uuid | <code>UUID</code> | UUID which will be used to perform the lookup |
 
-
--
-
 <a name="Client+tools.dicomConformance"></a>
 #### tools.dicomConformance() ⇒ <code>Promise</code>
 DICOM conformance statement of this version of Orthanc
 
 **Kind**: static method of <code>[tools](#Client+tools)</code>  
 **Returns**: <code>Promise</code> - The expected result is a String  
-
--
-
 <a name="Client+tools.generateUid"></a>
 #### tools.generateUid(level) ⇒ <code>Promise</code>
 Generates an UUID
@@ -936,26 +755,17 @@ Generates an UUID
 | --- | --- | --- |
 | level | <code>String</code> | argument among "patient", "study", "series" and "instance" |
 
-
--
-
 <a name="Client+system"></a>
 ### client.system
 System operations
 
 **Kind**: instance property of <code>[Client](#Client)</code>  
-
--
-
 <a name="Client+system.system"></a>
 #### system.system() ⇒ <code>Promise</code>
 Get some information about the Orthanc Server
 
 **Kind**: static method of <code>[system](#Client+system)</code>  
 **Returns**: <code>Promise</code> - The expected response is a JSON object  
-
--
-
 <a name="Client+changes"></a>
 ### client.changes
 Operations over changes logs
@@ -965,9 +775,6 @@ Operations over changes logs
 * [.changes](#Client+changes)
   * [.getChanges([params])](#Client+changes.getChanges) ⇒ <code>Promise</code>
   * [.deleteChanges()](#Client+changes.deleteChanges) ⇒ <code>Promise</code>
-
-
--
 
 <a name="Client+changes.getChanges"></a>
 #### changes.getChanges([params]) ⇒ <code>Promise</code>
@@ -983,18 +790,12 @@ Get changes logs
 | [params.since] | <code>Integer</code> | <code>0</code> | Set the sequence number since which changes should be returned |
 | [params.limit] | <code>Integer</code> | <code>100</code> | Set the returned changes limit. Default and maximum values are the same : 100 |
 
-
--
-
 <a name="Client+changes.deleteChanges"></a>
 #### changes.deleteChanges() ⇒ <code>Promise</code>
 Delete changes logs
 
 **Kind**: static method of <code>[changes](#Client+changes)</code>  
 **Returns**: <code>Promise</code> - The expected response is empty  
-
--
-
 <a name="Client+exports"></a>
 ### client.exports
 Operations over exports logs
@@ -1004,9 +805,6 @@ Operations over exports logs
 * [.exports](#Client+exports)
   * [.getExports([params])](#Client+exports.getExports) ⇒ <code>Promise</code>
   * [.deleteExports()](#Client+exports.deleteExports) ⇒ <code>Promise</code>
-
-
--
 
 <a name="Client+exports.getExports"></a>
 #### exports.getExports([params]) ⇒ <code>Promise</code>
@@ -1022,15 +820,9 @@ Get exports logs. For medical traceability, Orthanc stores a log of all the reso
 | [params.since] | <code>Integer</code> | <code>0</code> | Set the sequence number since which exports should be returned |
 | [params.limit] | <code>Integer</code> | <code>100</code> | Set the returned exports limit. Default and maximum values are the same : 100 |
 
-
--
-
 <a name="Client+exports.deleteExports"></a>
 #### exports.deleteExports() ⇒ <code>Promise</code>
 Delete exports logs
 
 **Kind**: static method of <code>[exports](#Client+exports)</code>  
 **Returns**: <code>Promise</code> - The expected response is empty  
-
--
-
