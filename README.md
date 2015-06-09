@@ -1,4 +1,4 @@
-# orthanc-client
+# orthanc-client [![Build Status](https://travis-ci.org/FWoelffel/orthanc-client.svg?branch=master)](https://travis-ci.org/FWoelffel/orthanc-client)
 An [Orthanc](http://www.orthanc-server.com) REST API client designed for NodeJS.
 # Installation
 ```

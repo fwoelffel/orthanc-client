@@ -47,7 +47,6 @@ var Client = function(param) {
         getAll: function() {return instances.getAll(self)},
         /**
          * Get the instance with the given id
-         * @param {Client} client Client which will be used to perform the request
          * @param {String} id Id of the targeted instance
          * @returns {Promise} The expected result is a JSON object
          */
@@ -90,7 +89,7 @@ var Client = function(param) {
         /**
          * Get the image of the instance with the given id
          * @param {String} id Id of the targeted instance
-         * @param {String} [frameFormat=preview] Wanted format for the targeted frame. Must be image-int16, image-uint16, image-uint8, matlab or preview
+         * @param {String} [imageFormat=preview] Wanted format for the targeted frame. Must be image-int16, image-uint16, image-uint8, matlab or preview
          */
         getImage: function(id, imageFormat) {return instances.getImage(self, id, imageFormat)},
         //modify: function(id) {//TODO},
@@ -387,7 +386,7 @@ var Client = function(param) {
          * @param {String} level argument among "patient", "study", "series" and "instance"
          * @returns {Promise} The expected result is a String
          */
-        generateUid: function(level) {return tools.generateUid(self, level)},
+        generateUid: function(level) {return tools.generateUid(self, level)}
         //executeScript: function() {//TODO},
         //createDicom: function() {//TODO},
     };
