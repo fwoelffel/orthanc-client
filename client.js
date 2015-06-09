@@ -466,6 +466,6 @@ var Client = function(param) {
         //findStudy: function() {//TODO},
         //store: function() {//TODO}
     }
-}
+};
 
 module.exports = Client;
