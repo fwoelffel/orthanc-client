@@ -59,6 +59,12 @@ var Client = function(param) {
          * @returns {Promise} The expected result is a JSON object
          */
         get: function(id) {return instances.get(self, id)},
+        /**
+         * Add the new DICOM file given as a Buffer
+         * @param {Buffer} buffer The DICOM file which will be uploaded
+         * @returns {Promise} The expected result is a JSON object
+         */
+        add: function(buffer) {return instances.add(self, buffer)},
         //anonymize: function() {//TODO},
         /**
          * Get raw access to DICOM tags. If both group and element are provided, get raw access to the value of the targeted DICOM tag. If index is also provided, get raw access to the targeted DICOM sequence value.

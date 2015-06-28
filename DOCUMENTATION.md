@@ -9,6 +9,7 @@
   * [.instances](#Client+instances)
     * [.getAll()](#Client+instances.getAll) ⇒ <code>Promise</code>
     * [.get(id)](#Client+instances.get) ⇒ <code>Promise</code>
+    * [.add(buffer)](#Client+instances.add) ⇒ <code>Promise</code>
     * [.getContent(id, [group], [element], [index])](#Client+instances.getContent) ⇒ <code>Promise</code>
     * [.export(id)](#Client+instances.export) ⇒ <code>Promise</code>
     * [.getFile(id)](#Client+instances.getFile) ⇒ <code>Promise</code>
@@ -111,6 +112,7 @@ Operations over instances
 * [.instances](#Client+instances)
   * [.getAll()](#Client+instances.getAll) ⇒ <code>Promise</code>
   * [.get(id)](#Client+instances.get) ⇒ <code>Promise</code>
+  * [.add(buffer)](#Client+instances.add) ⇒ <code>Promise</code>
   * [.getContent(id, [group], [element], [index])](#Client+instances.getContent) ⇒ <code>Promise</code>
   * [.export(id)](#Client+instances.export) ⇒ <code>Promise</code>
   * [.getFile(id)](#Client+instances.getFile) ⇒ <code>Promise</code>
@@ -140,6 +142,17 @@ Get the instance with the given id
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>String</code> | Id of the targeted instance |
+
+<a name="Client+instances.add"></a>
+#### instances.add(buffer) ⇒ <code>Promise</code>
+Add the new DICOM file given as a Buffer
+
+**Kind**: static method of <code>[instances](#Client+instances)</code>  
+**Returns**: <code>Promise</code> - The expected result is a JSON object  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| buffer | <code>Buffer</code> | The DICOM file which will be uploaded |
 
 <a name="Client+instances.getContent"></a>
 #### instances.getContent(id, [group], [element], [index]) ⇒ <code>Promise</code>
