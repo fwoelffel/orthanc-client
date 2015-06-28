@@ -12,8 +12,8 @@ var exports = require('./lib/exports');
  * @param {Object} param
  * @param {String} [param.url=http://localhost:8042] Orthanc REST API's URL
  * @param {Object} [param.auth]
- * @param {String} [param.auth.username] Valid Orthanc Server username
- * @param {String} [param.auth.password] Valid Orthanc Server password
+ * @param {String} [param.auth.user] Valid Orthanc Server username
+ * @param {String} [param.auth.pass] Valid Orthanc Server password
  */
 var Client = function(param) {
 
@@ -31,10 +31,18 @@ var Client = function(param) {
      * @property {String} username Username which will be used by the client to authenticate against Orthanc server
      * @property {String} password Password which will be used by the client to authenticate against Orthanc server
      */
-    this.auth = {
-      username: (param.auth!==undefined && typeof param.auth === 'object' && typeof param.auth.username === 'string' ? param.auth.username : ''),
-      password: (param.auth!==undefined && typeof param.auth === 'object' && typeof param.auth.password === 'string' ? param.auth.password : '')
-    };
+    this.auth = param.auth;
+    if('undefined' !== typeof this.auth && ('string' !== typeof this.auth.user || 'string' !== typeof this.auth.pass)) {
+        if('string' === typeof this.auth.username || 'string' === typeof this.auth.password) {
+            this.auth = {
+                user: this.auth.username,
+                pass: this.auth.password
+            }
+        }
+        else {
+            throw new Error('Invalid credentials');
+        }
+    }
 
     /**
      * Operations over instances

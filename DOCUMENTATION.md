@@ -82,8 +82,8 @@ Creates a new Client
 | param | <code>Object</code> |  |  |
 | [param.url] | <code>String</code> | <code>http://localhost:8042</code> | Orthanc REST API's URL |
 | [param.auth] | <code>Object</code> |  |  |
-| [param.auth.username] | <code>String</code> |  | Valid Orthanc Server username |
-| [param.auth.password] | <code>String</code> |  | Valid Orthanc Server password |
+| [param.auth.user] | <code>String</code> |  | Valid Orthanc Server username |
+| [param.auth.pass] | <code>String</code> |  | Valid Orthanc Server password |
 
 <a name="Client+url"></a>
 ### client.url : <code>String</code>
