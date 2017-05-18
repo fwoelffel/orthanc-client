@@ -18,10 +18,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "q": "^1.4.1",
     "request": "^2.55.0"
   },
   "engines" : {
-    "node" : ">=0.10.0 <0.12"
+    "node" : ">=5.11.0 <7.2.0"
   }
 }
